@@ -1,4 +1,3 @@
-$base-back-color : #fff;
 /*清除外边距*/
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, figure, /*结构元素*/
 dl, dt, dd, ul, ol, li, /*列表元素*/
@@ -30,8 +29,8 @@ address, cite, dfn, em, var {
 /*清下划线，鼠标略过a标签，显示下划线*/
 a {
     text-decoration: none;
-    color: black;
-    &:hover {text-decoration: underline;}
+    color: #99A8AC;
+    &:hover { color:#FF3344; }
 }
 
 /*清浮动*/
@@ -39,4 +38,178 @@ a {
     content: '';
     display: block;
     clear: both;
+}
+$base-font-size : .12rem;
+$width-over : 100%;
+$base-back-color : #fff;
+$center : 0 auto;
+$none : none;
+
+body {
+    font-family: 'Helvetica','Microsoft YaHei','STHeiti STXihei', 'Microsoft JhengHei','Arial';
+    font-size: 12px;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 268148 */
+  src: url('//at.alicdn.com/t/font_ljfimay7am7vi.eot');
+  src: url('//at.alicdn.com/t/font_ljfimay7am7vi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_ljfimay7am7vi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_ljfimay7am7vi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_ljfimay7am7vi.svg#iconfont') format('svg');
+}
+.none {
+    display: $none;
+}
+#my-blog-wrap {
+    width: $width-over;
+    height: 120px;
+}
+header {
+    overflow: hidden;
+    max-width: 1000px;
+    margin: $center;
+    position: relative;
+    height: 120px;
+}
+.logo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -25px;
+}
+nav {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 50px;
+    margin-top: -25px;
+    width: 70%;
+}
+.nav-wrap {
+    height: 50px;
+}
+.nav {
+    width: 70%;
+    height: 100%;
+}
+nav ul li {
+    float: left;
+}
+nav ul li a{
+    padding: 0 20px;
+    font-size: 16px;
+    float: left;
+    height: 100%;
+    line-height: 50px;
+    margin: 0 10px;
+}
+.search {
+    position:relative;
+    width: 30%;
+    height: 50px;
+}
+#search{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+    border: none;
+    border-bottom:1px solid #808080;
+    outline: none;
+    height: 24px;
+    width: 24px;
+    background:transparent;
+    transition: all .4s ease;
+}
+#search-submit {
+    background: #fff url('../images/icon_search.png') no-repeat center center;
+    border : none;
+    border-radius: 0;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    position:absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    padding:0;
+    outline: $none;
+}
+.main-wrap {
+    margin: $center;
+    margin-top: 50px;
+    width: 1000px;
+    display: flex;
+    align-content: center;
+    justify-content: flex-start;  
+}
+main {
+    width: 70%;
+}
+.main-slider {
+    width: 30%;
+}
+section {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+.msg-con {
+    margin:0 0 0 30px;
+    padding: 0 0 0 20px;
+    position:relative;
+}
+.account-msg {
+    padding:10px 0 15px 0;
+    border-top: 5px solid #FF3344;
+}
+.release-date {
+    padding:20px 0;
+    border-top:5px solid #00E7A9;
+    text-align: center;
+}
+.account-name {
+    text-align: center;
+    color: #99A8AC;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.5em;
+}
+.day {
+    margin: 20px 0;
+    font-size: 40px;
+    font-weight: 400;
+    color: #3E3E3E;
+}
+.months {
+    color: #99A8AC;
+}
+.msg-tit {
+    display: block;
+    margin: 0 0 30px 0;
+    font-size: 24px;
+}
+.msg-introduction {
+    line-height: 1.5rem;
+    font-size: 14px;
+    color: #99A8AC;
+    text-indent: 2em;
+}
+.my-icon {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.msg-con-icon {
+    position:absolute;
+    top: 7px;
+    left: -15px;
+    color: #00E7A9;
+}
+.my-font {
+    font-size: 25px;
 }

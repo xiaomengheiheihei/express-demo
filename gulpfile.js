@@ -14,11 +14,11 @@ gulp.task('clean', function() {		// 清除
 });
 
 // 编译html
-gulp.task ('html', function () {
-	gulp.src('./views/*.jade')
-		.pipe(jade())
-		.pipe(gulp.dest('./dist/views'));
-});
+// gulp.task ('html', function () {
+// 	gulp.src('./views/*.jade')
+// 		.pipe(jade())
+// 		.pipe(gulp.dest('./dist/views'));
+// });
 
 // 检查脚本
 gulp.task('lint', function() {
@@ -46,10 +46,10 @@ gulp.task('scripts', function() {
 
 // 默认任务
 gulp.task('default', function(){
-    gulp.run('html', 'lint', 'sass', 'scripts');
+    gulp.run('lint', 'sass', 'scripts');
 
     // 监听文件变化
     gulp.watch('./routes/*.js', function(){
-        gulp.run('html', 'lint', 'sass', 'scripts');
+        gulp.run('lint', 'sass', 'scripts');
     });
 });
