@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "gulp",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -15,10 +16,16 @@
     "serve-favicon": "~2.3.2"
   },
   "devDependencies": {
+    "gulp-asset-rev": "0.0.15",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
+    "gulp-rev": "^8.0.0",
+    "gulp-rev-collector": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.2"
+    "gulp-uglify": "^2.1.2",
+    "run-sequence": "^2.1.0"
   }
 }

@@ -6,25 +6,20 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var jade = require('gulp-jade');
-
-gulp.task('clean', function() {		// 清除
-    return gulp.src('dist', {read: false})
-                .pipe(clean());
-});
-
-// 编译html
-// gulp.task ('html', function () {
-// 	gulp.src('./views/*.jade')
-// 		.pipe(jade())
-// 		.pipe(gulp.dest('./dist/views'));
-// });
+var imgMin = require('gulp-imagemin');
 
 // 检查脚本
 gulp.task('lint', function() {
-    gulp.src('./routes/*.js')
+    gulp.src(['./public/javascripts/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
+});
+
+// 压缩图片
+gulp.task('minImg', function () {
+    gulp.src('./public/images/*.*')
+        .pipe(imgMin({progressive: true}))
+        .pipe(gulp.dest('./dist/images'))
 });
 
 // 编译Sass
@@ -36,20 +31,21 @@ gulp.task('sass', function() {
 
 // 合并，压缩文件
 gulp.task('scripts', function() {
-    gulp.src('./routes/*.js')
-        .pipe(concat('route.js'))
-        .pipe(gulp.dest('./dist/lib'))
-        .pipe(rename('route.min.js'))
+    gulp.src(['./public/javascripts/*.js'])
+        .pipe(concat('index.js'))
         .pipe(uglify())
+        .pipe(rename('index.min.js'))
         .pipe(gulp.dest('./dist/lib'));
 });
 
-// 默认任务
-gulp.task('default', function(){
-    gulp.run('lint', 'sass', 'scripts');
-
-    // 监听文件变化
-    gulp.watch('./routes/*.js', function(){
-        gulp.run('lint', 'sass', 'scripts');
+// 监听文件变化
+gulp.task('auto', function(event){
+    gulp.watch('./*.*', function (event) {
+        console.log('File' + event.path + 'was' + event.type +', run tasking');
     });
+});
+
+// 默认任务
+gulp.task('default', function () {
+    gulp.start('lint','minImg','sass','scripts','auto');
 });
